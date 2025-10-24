@@ -20,8 +20,17 @@ export const AuthApi = baseApi.injectEndpoints({
       }),
       invalidatesTags: ["User"],
     }),
+
+    loginUser: builder.mutation<User, Partial<User>>({
+      query: (credentials) => ({
+        url: "users",
+        method: "POST",
+        body: credentials,
+      }),
+      invalidatesTags: ["User"],
+    }),
   }),
   overrideExisting: false,
 });
 
-export const { useRegisterUserMutation} = AuthApi;
+export const { useRegisterUserMutation ,useLoginUserMutation} = AuthApi;
