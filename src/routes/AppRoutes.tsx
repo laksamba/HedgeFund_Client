@@ -4,6 +4,7 @@ import Register from '../pages/Register'
 import LandingPage from '../pages/LandingPage'
 import Login from '../pages/Login'
 import PageNotFound from '../pages/PageNotFound'
+import InvesterDashboard from '../pages/InvesterDashboard'
 
 
 const AppRoutes: React.FC= () => {
@@ -13,6 +14,7 @@ const AppRoutes: React.FC= () => {
         <Route path='/' element={<LandingPage/>}/>
         <Route path='/login' element={<Login/>}/>
         <Route path='*' element={<PageNotFound/>}/>
+        <Route path='/investerDashboard' element={<InvesterDashboard/>}/>
     </Routes >
   )
 }
