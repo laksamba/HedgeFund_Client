@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { Home, BarChart2, Briefcase, FileText } from "lucide-react";
 import { motion } from "framer-motion";
+import HomeUI from "../InvesterUi/HomeUI";
+import Market from "../InvesterUi/Market";
+import Portfolio from "../InvesterUi/Portfolio";
 
 const Sidebar: React.FC = () => {
   const [activeTab, setActiveTab] = useState("Home");
@@ -15,11 +18,11 @@ const Sidebar: React.FC = () => {
   const renderContent = () => {
     switch (activeTab) {
       case "Home":
-        return <div className="p-6 text-xl font-semibold">🏠 Home Dashboard</div>;
+        return <HomeUI/>;
       case "Market":
-        return <div className="p-6 text-xl font-semibold">📈 Market Overview</div>;
+        return <Market/>
       case "Portfolio":
-        return <div className="p-6 text-xl font-semibold">💼 Portfolio Details</div>;
+        return <Portfolio/>
       case "Reports":
         return <div className="p-6 text-xl font-semibold">📊 Reports & Analytics</div>;
       default:
