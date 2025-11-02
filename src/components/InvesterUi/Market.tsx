@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { TrendingUp, Globe } from "lucide-react";
+import {  Globe } from "lucide-react";
 import { ClipLoader } from "react-spinners";
 
 interface Asset {
@@ -58,7 +58,7 @@ const Market: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white p-6">
+    <div className="min-h-screen  text-black p-3">
       <motion.div
         className="max-w-5xl mx-auto"
         variants={containerVariants}
@@ -69,7 +69,7 @@ const Market: React.FC = () => {
           <h1 className="text-2xl font-bold flex items-center">
             <Globe className="mr-2" /> Market Overview
           </h1>
-          <div className="flex gap-3">
+          <div className="flex gap-3 text-white">
             <button
               onClick={() => {
                 setActiveTab("stocks");
@@ -105,7 +105,7 @@ const Market: React.FC = () => {
           </div>
         ) : (
           <motion.div
-            className="bg-gray-800 p-6 rounded-lg shadow-lg overflow-x-auto min-h-[420px]"
+            className="bg-white p-6 rounded-lg shadow-sm border-gray-200  overflow-x-auto min-h-[420px]"
             variants={containerVariants}
           >
             <table className="w-full text-sm md:text-base">
@@ -153,7 +153,7 @@ const Market: React.FC = () => {
             </table>
 
             {/* Pagination Buttons */}
-            <div className="flex justify-center mt-6 gap-2 flex-wrap">
+            <div className="flex justify-center mt-6 gap-2 flex-wrap text-white pb-4">
               <button
                 onClick={() => handlePageChange(currentPage - 1)}
                 disabled={currentPage === 1}

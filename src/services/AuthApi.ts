@@ -1,18 +1,16 @@
-
 import { baseApi } from "../app/api";
 
-
-
-export interface User{
-    id?: number;
-    email: string;
-    phone?: string;
-    password: string;
+export interface User {
+  length: number;
+  id?: number;
+  email: string;
+  phone?: string;
+  password: string;
 }
 
 export const AuthApi = baseApi.injectEndpoints({
-    endpoints:(builder)=>({
-       registerUser: builder.mutation<User, User>({
+  endpoints: (builder) => ({
+    registerUser: builder.mutation<User, User>({
       query: (newUser) => ({
         url: "users",
         method: "POST",
@@ -21,11 +19,10 @@ export const AuthApi = baseApi.injectEndpoints({
       invalidatesTags: ["User"],
     }),
 
-    loginUser: builder.mutation<User, Partial<User>>({
-      query: (credentials) => ({
-        url: "users",
-        method: "POST",
-        body: credentials,
+    loginUser: builder.mutation<User[], Partial<User>>({
+      query: ({email, password}) => ({
+        url: `/users?email=${email}&password=${password}`,
+        method: "GET", 
       }),
       invalidatesTags: ["User"],
     }),
@@ -33,4 +30,4 @@ export const AuthApi = baseApi.injectEndpoints({
   overrideExisting: false,
 });
 
-export const { useRegisterUserMutation ,useLoginUserMutation} = AuthApi;
+export const { useRegisterUserMutation, useLoginUserMutation } = AuthApi;
